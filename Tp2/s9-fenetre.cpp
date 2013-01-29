@@ -22,16 +22,14 @@ static double spin = 0.0;
    onto the current position */
 static char label[100];
 
-void 
-drawString (char *s)
+void drawString (char *s)
 {
   unsigned int i;
   for (i = 0; i < strlen (s); i++)
     glutBitmapCharacter (GLUT_BITMAP_HELVETICA_10, s[i]);
 };
 
-void 
-drawStringBig (char *s)
+void drawStringBig (char *s)
 {
   unsigned int i;
   for (i = 0; i < strlen (s); i++)
@@ -41,8 +39,7 @@ drawStringBig (char *s)
 
 /* Here is a display fucntion that updates
    the main graphic window */
-void 
-mainDisplay (void)
+void mainDisplay (void)
 {
 
   /* Clean drawing board */
@@ -77,8 +74,7 @@ mainDisplay (void)
 
 /* Another display function, this one will be 
    used to update the graphic subwindow */
-void 
-subDisplay ()
+void subDisplay ()
 {
 
   /* Clear subwindow */
@@ -124,8 +120,7 @@ subDisplay ()
 
 
 /* Callback function for reshaping the main window */
-void 
-mainReshape (int w, int h)
+void mainReshape (int w, int h)
 {
   glViewport (0, 0, w, h);
   glMatrixMode (GL_PROJECTION);
@@ -143,8 +138,7 @@ mainReshape (int w, int h)
 
 
 /* Callback function for reshaping the subwindow */
-void 
-subReshape (int w, int h)
+void subReshape (int w, int h)
 {
   glViewport (0, 0, w, h);
   glMatrixMode (GL_PROJECTION);
@@ -154,8 +148,7 @@ subReshape (int w, int h)
 
 
 /* Now comes a function that processes keyboard events */
-void 
-keyboard (unsigned char key, int x, int y)
+void keyboard (unsigned char key, int x, int y)
 {
   static int info_banner = 1;
 
@@ -164,7 +157,7 @@ keyboard (unsigned char key, int x, int y)
     case 'i':
     case 'I':
       if (info_banner)
-  {
+	{
 	  glutSetWindow (winIdSub);
 	  glutHideWindow ();
 	}
@@ -189,8 +182,7 @@ keyboard (unsigned char key, int x, int y)
 /* There can be only one idle() callback function. In an
    animation, this idle() function must update not only the
    main window but also all derived subwindows */
-void 
-idle (void)
+void idle (void)
 {
 
   /* Update  state variables */
@@ -205,10 +197,7 @@ idle (void)
 };
 
 
-
-
-int 
-main (int argc, char **argv)
+int main (int argc, char **argv)
 {
 
   /* Glut initializations */
